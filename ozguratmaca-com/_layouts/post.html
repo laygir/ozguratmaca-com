@@ -1,0 +1,115 @@
+---
+layout: default
+---
+
+<div class="container primary-border p-0 post">
+  <div class="post-bg"></div>
+
+  <article class="p-5" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header>
+
+      <h1 class="mb-5 text-center" itemprop="name headline">{{ page.title | escape }}</h1>
+  
+      {%- if page.vimeo -%}
+        <div style="padding:{{ page.sizing }} 0 0 0;position:relative;" class="box-shadow">
+          <iframe src="https://player.vimeo.com/video/{{ page.vimeo }}?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+      {%- else -%}
+        <img class="img-fluid box-shadow" src="/assets{{ page.permalink }}{{ page.header }}">
+      {%- endif -%}
+        
+    </header>
+      
+    <div class="newspaper mt-5" itemprop="articleBody">
+      
+      {{ content }}
+
+      {%- assign date_format = site.minima.date_format | default: "%b, %Y" -%}
+      <div class="post-meta">
+        <ul class="list-unstyled">
+          
+          {%- if page.agency -%}
+            <li><strong>Agency: </strong>{{ page.agency }}</li>
+          {%- endif -%}        
+          
+          {%- if page.client -%}
+            <li><strong>Client: </strong>{{ page.client }}</li>
+          {%- endif -%}        
+
+          
+          {%- if page.date -%}
+          <li>
+            <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+              <strong>Date: </strong>{{ page.date | date: date_format }}
+            </time>
+          </li>
+          {%- endif -%}
+          
+
+          {%- if page.role -%}
+            <li><strong>Role: </strong>{{ page.role }}</li>
+          {%- endif -%}        
+
+
+        </ul>
+      </div>
+  
+    </div>
+
+    <!-- Prev / Next post links -->
+    <!-- <div class="PageNavigation">  
+      {% if page.previous.url %}
+        <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+      {% endif %}
+      {% if page.next.url %}
+        <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+      {% endif %}
+    </div> -->
+      
+    <div class="gallery text-center">
+      <ul class="list-unstyled">
+        {% for image in page.gallery %}
+          <li class="my-5">
+            <img class="img-fluid" src="/assets{{ page.permalink }}{{ image.image }}">
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+
+    <a href="{{ page.url | relative_url }}" hidden></a>
+
+
+  </article>
+
+  <div class="container border-top mt-5 p-5">
+
+    <h1 class="text-center mb-5">More work</h1>
+
+    <div class="newspaper"> 
+          
+        {% assign posts=site.posts %}
+        {%- for post in posts -%}
+
+        <div class="work">
+            <a href="{{ post.url | relative_url }}">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="/assets{{ page.permalink }}{{ post.cover }}" alt="{{ post.title }}" src="/assets{{ post.permalink }}{{ post.cover }}" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">{{ post.title | escape }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        {%- endfor -%}
+  
+      </div>
+  </div>
+  
+  
+  
+
+</div>
