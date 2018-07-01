@@ -1,0 +1,33 @@
+<header class="container py-4 mt-sm-5 text-center" role="banner">
+
+  <!-- Brand -->
+  <h1>
+    <a class="navbar-brand" href="{{ "/" | relative_url }}">
+      {{ site.initial }}
+    </a>
+  </h1>
+
+  <h5 class="text-white">{{ site.author }}</h5>
+
+  <!-- Nav -->
+  <nav class="nav justify-content-center mt-4 mb-2 ">
+    {% assign pages=site.pages | sort: 'order' %}
+
+    {%- for nav-item in pages -%}
+      {%- if nav-item.title -%}  
+        <a class="nav-link {% if nav-item.url == page.url %}active{% endif %}" href="{{ nav-item.url | prepend: site.baseurl }}">{{ nav-item.title }}</a>
+      {%- endif -%}
+    {%- endfor -%}
+
+  </nav>
+
+  <div class="text-center mt-3">  
+    <a class="icons" target="_blank" href="https://www.dribbble.com/{{ site.dribbble_username }}"><div class="icon">{{ site.dribbble_svg }}</div></a>
+    <a class="icons" target="_blank" href="https://www.instagram.com/{{ site.instagram_username }}"><div class="icon">{{ site.instagram_svg }}</div></a>
+    <a class="icons" target="_blank" href="https://www.vimeo.com/{{ site.vimeo_username }}"><div class="icon">{{ site.vimeo_svg }}</div></a>
+    <a class="icons" target="_blank" href="https://www.behance.net/{{ site.behance_username }}"><div class="icon">{{ site.behance_svg }}</div></a>
+  </div>
+    
+</header>
+
+
