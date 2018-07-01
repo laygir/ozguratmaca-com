@@ -2,10 +2,11 @@
 ---
 
 
-$primary-color: #ee9e86;
-$text-color-dark: #222222;
+$primary-color: #000000;
+$text-color-dark: #000000;
 $text-color-light: #ffffff;
 $background-color: #ffffff;
+$color-faded: #dedede;
 $hover: #f9737a;
 $box-shadow: 0 5px 15px 0 rgba(0,0,0,0.07), 0 15px 35px 0 rgba(50,50,93,0.10);
 $box-shadow-hover: 0 45px 95px 0 rgba(0, 0, 0, 0.07), 0 15px 35px 0 rgba(50, 50, 93, 0.1);
@@ -27,6 +28,7 @@ body {
     background-color: $background-color;
     font-size: $base-font-size;
     font-weight: 300;
+    line-height: 28px;
 }
 
 .container {
@@ -35,24 +37,36 @@ body {
 
 
 .row-custom {
+    column-width: 18em;
     -moz-column-width: 18em;
     -webkit-column-width: 18em;
+    column-gap: 2em;
     -moz-column-gap: 2em;
     -webkit-column-gap:2em; 
 }
 
 .btn-primary {
     background-color: $primary-color;
-    border: none;
-    min-height: 48px;
+    border-color: $primary-color;
+    padding: 12px 12px;
 }
 
 .btn-primary:hover {
-    background-color: $text-color-dark;
+    background-color: $background-color;
+    border-color: $primary-color;
+    color: $primary-color;
 }
 
 .btn-primary.focus, .btn-primary:focus {
     box-shadow: none;
+}
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: $primary-color;
+    border-color: $primary-color;
 }
 
 .item {
@@ -69,10 +83,15 @@ body {
     font-weight: 100;
 }
 
+.navbar-brand:hover {
+    background-color: white;
+    border-radius: 4px;
+}
+
 .nav-link {
     font-size: 20px;
-    padding: 0;
-    width: 100px;
+    padding: 0px 10px;
+    margin: 0px 3px;
 }
 
 h1,h2,h3,h4,h5 {
@@ -96,19 +115,25 @@ h5 {
     transition: all 0.5s ease;
 }
 
-.card:hover{
-    // box-shadow: $box-shadow-hover;
-    background-color: $primary-color;
-}
-
 a {
     color: $text-color-dark;
-    transition: all 0.5s ease;
+}
+a:hover .card {
+    background-color: $primary-color;
+    color: $text-color-light;
+}
+a:hover {
+    color: $text-color-dark;
+    text-decoration: none;
 }
 
-a:hover {
-    color: $text-color-light;
-    text-decoration: none;
+
+.form-control:focus {
+    border-color: $text-color-dark;
+    box-shadow: none;
+}
+.form-control:hover {
+    border-color: #222222;
 }
 
 body > header {
@@ -122,6 +147,8 @@ body > header {
     columns: 3 300px;
 
 
+    -webkit-column-fill: balance;
+    -moz-column-fill: balance;
     column-fill: balance;
 
     -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
@@ -135,21 +162,31 @@ body > header {
     padding: 10px 0;
 }
 
+.profile-img {
+    border-radius: 100px;
+    width: 200px;
+}
 
 
 body > header {
     a {
         color: $text-color-light;
+        transition: all 0.5s ease;
     }
     
-    a:hover {
-        color: $text-color-dark;
-    }
     
     a.nav-link.active {
         color: $text-color-dark;
-        background-color: papayawhip;
+        background-color: $background-color;
+        border-radius: $border-radius;
+        margin: 0px 3px;
+    }
+
+    a.nav-link:hover {
+        color: $text-color-dark;
+        background-color: $background-color;
         border-radius: $border-radius
+
     }
 
     svg {
@@ -162,7 +199,10 @@ body > header {
         color: $text-color-light;
         opacity: 0.7;
     }
-    
+    .icons:hover {
+        opacity: 1;
+    }
+
     .icon {
         width: 24px;
         height: 24px;
@@ -206,7 +246,7 @@ article {
     .post-meta ul li {
         line-height: 32px;
         display: table;
-        border-bottom: 1px solid $primary-color;
+        border-bottom: 1px solid $color-faded;
         padding-bottom: 3px;
         margin-bottom: 10px;
     }

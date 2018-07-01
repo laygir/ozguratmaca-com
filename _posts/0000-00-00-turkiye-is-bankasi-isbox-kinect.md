@@ -12,13 +12,7 @@ sizing: 56.25%
 
 agency: Tribal Worldwide İstanbul 
 client: Türkiye İş Bankası 
-role: Art Direction and Production Design
-
-gallery:
-- image: turkiye-is-bankasi-isbox-kinect-01.jpg
-- image: turkiye-is-bankasi-isbox-kinect-02.jpg
-- image: turkiye-is-bankasi-isbox-kinect-03.jpg
-- image: turkiye-is-bankasi-isbox-kinect-04.jpg
+role: Animation · Development · Direction · Installation · Interaction Design · Post Production · Production
 
 ---
 
@@ -30,4 +24,4 @@ We had a shooting in studio with a choreographer and two performers, creating si
 
 20 or more banking and dancing figures were targeted for each song and if participant’s were good enough to act exactly or nearly the same, they were motivated with supers associated with banking.
 
-When playing, we took their photos and printed them out like a slip when they are finished.
+When playing, we took their photos and printed out like a transaction receipt when they are finished.

@@ -12,7 +12,7 @@ sizing: 56.25%
 
 agency: Büyük Ayı 
 client: Akfel Holding
-role: Art Direction and Illustration
+role: Animation · Development · Production · UI / UX / XD
 
 gallery:
 - image: akfel-wgc-paris-multitouch-application-01.jpg
@@ -24,17 +24,26 @@ gallery:
 - image: akfel-wgc-paris-multitouch-application-07.jpg
 - image: akfel-wgc-paris-multitouch-application-08.jpg
 - image: akfel-wgc-paris-multitouch-application-09.jpg
-- image: akfel-wgc-paris-multitouch-application-10.jpg
-- image: akfel-wgc-paris-multitouch-application-11.jpg
-- image: akfel-wgc-paris-multitouch-application-12.jpg
+- image: akfel-wgc-paris-multitouch-application-10.png
+- image: akfel-wgc-paris-multitouch-application-11.png
+- image: akfel-wgc-paris-multitouch-application-12.png
+- image: akfel-wgc-paris-multitouch-application-13.png
+- image: akfel-wgc-paris-multitouch-application-14.png
+- image: akfel-wgc-paris-multitouch-application-15.jpg
+- image: akfel-wgc-paris-multitouch-application-16.jpg
+- image: akfel-wgc-paris-multitouch-application-17.jpg
+- image: akfel-wgc-paris-multitouch-application-18.jpg
+- image: akfel-wgc-paris-multitouch-application-19.jpg
+- image: akfel-wgc-paris-multitouch-application-20.jpg
+- image: akfel-wgc-paris-multitouch-application-21.jpg
+- image: akfel-wgc-paris-multitouch-application-22.jpg
+- image: akfel-wgc-paris-multitouch-application-23.jpg
+- image: akfel-wgc-paris-multitouch-application-24.jpg
+- image: akfel-wgc-paris-multitouch-application-25.jpg
 
 
 ---
 
-Around April 2014, we started sketching out various space capsule designs based on the brief coming from the agency. It was for a roadshow that an automotive LPG company called Aygaz Otogaz going for. 
+We have developed and produced interactive multi touch tables for Akfel, an energy company based in Istanbul, Turkey. For the 2015 Paris World Gas Conference, they were looking for a way to showcase their portfolio, products, investments and subsidiaries within a manageable, interactive package. We have designed user interfaces, 3d graphics and illustrations for a massive content. Visualized many parts both in 3d and 2d graphics while sketching physical table designs proposals.
 
-The approach was capturing audience attention on the field with an unexpected object, a space capsule coming from the future with a message in it. The message was composed of three key future projections; Climate Change, Health and Economics in the future. Story focus and our goal were to raise awareness and target emotional, perceptual experience.
-
-On 21st of May, we had the approval of capsule designs, materials, construction plans, key visuals and concept overall. Except we had no storyboard and two months to deliver the thing on the field. To cover up roughly we built a 4 meters long, 2.3 meters wide and 2.2 meters high made of aluminium space capsule looking experience area. 
-
-We planted five LCD TV’s inside, three of them were the main screens which was feed by a multitouch application streaming 3240 x 1920 pixels of data and two of them were on the sides acting as a control panel, status updates and fictional settings. Again on both sides, we had 8 highlighted subjects in seven segment displays. Displaying real-time numbers of deaths today, births today, deaths caused by cancer and deaths caused by the hunger for instance.
+We have installed an alternative physical interface, a knob to control the flow of the information on the screen. While users were able to control everything through multi touch screen, the alternative knob made it more convenient  to scroll through in-depth information with a circular finger movement. Custom made knob cnc-machined from 7xxx series aluminum and fed the OpenFrameworks application which the whole application developed in through a micro controller.

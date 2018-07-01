@@ -2,7 +2,7 @@
 layout: page
 title: Contact
 permalink: /contact/
-image: ezgi-cinarli-profile.jpg
+image: ozgur-atmaca-profile.png
 order: 3
 ---
 
