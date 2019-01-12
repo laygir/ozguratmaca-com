@@ -1,1 +1,1 @@
-# ozguratmaca.com / develop
+# ozguratmaca.com
