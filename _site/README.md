@@ -1,1 +1,0 @@
-# thisisezgi.me

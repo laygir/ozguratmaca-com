@@ -1,3 +1,0 @@
-# ozguratmaca.com
-
-
