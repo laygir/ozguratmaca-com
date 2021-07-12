@@ -1,0 +1,28 @@
+@import 'transitions.css';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'ZwoBoldPlainAlt20ml';
+  src: url('fonts/ZwoBoldPlainAlt20ml.woff2') format('woff2'),
+    url('fonts/ZwoBoldPlainAlt20ml.woff') format('woff'),
+    url('fonts/ZwoBoldPlainAlt20ml.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ZwoLightPlainAlt20ml';
+  src: url('fonts/ZwoLightPlainAlt20ml.woff2') format('woff2'),
+    url('fonts/ZwoLightPlainAlt20ml.woff') format('woff'),
+    url('fonts/ZwoLightPlainAlt20ml.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
