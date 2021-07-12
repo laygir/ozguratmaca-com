@@ -87,7 +87,7 @@ export default {
     await this.$store.dispatch('common/getPosts');
 
     window.addEventListener('load', () => {
-      console.log('LOADED');
+      // console.log('LOADED');
 
       // const grid = document.querySelector('.grid');
 
@@ -104,13 +104,13 @@ export default {
         // },
       });
 
-      console.log('iso', this.isotope);
+      // console.log('iso', this.isotope);
     });
   },
   methods: {
     filterHandler() {
       this.isotope.arrange({ filter: this.filter });
-      console.log('iso', this.isotope, this.isotope.options.filter, this.filter);
+      // console.log('iso', this.isotope, this.isotope.options.filter, this.filter);
     },
   },
 };

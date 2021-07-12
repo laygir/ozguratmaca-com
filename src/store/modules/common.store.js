@@ -38,7 +38,6 @@ const actions = {
 
     try {
       const posts = await fetchEntries('post');
-      console.log('getPosts: posts', posts);
 
       commit('setState', ['posts', posts]);
       commit('setState', ['isLoading', false]);
@@ -55,7 +54,7 @@ const actions = {
     try {
       const templates = await fetchEntries('viewTemplate');
       const view = templates.items.find(item => item.fields.slug === payload);
-      console.log('view', view);
+      // console.log('view', view);
 
       commit('setViewTemplate', [payload, view]);
       // commit('setState', ['isLoading', false]);

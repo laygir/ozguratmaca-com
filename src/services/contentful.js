@@ -24,12 +24,12 @@ export async function fetchEntries(
     });
 
     if (!entries.items) {
-      return console.log(`Error getting Entries for ${contentType}.`);
+      throw Error(`Error getting Entries for ${contentType}.`);
     }
 
     return entries;
   } catch (error) {
-    return console.error(`Error getting Entries for ${contentType}.`, error);
+    throw Error(`Error getting Entries for ${contentType}.`, error);
   }
 }
 
@@ -48,6 +48,6 @@ export async function fetchLocales(preview) {
 
     return locales?.items;
   } catch (error) {
-    return console.error('Error getting locales.', error);
+    throw Error('Error getting locales.', error);
   }
 }
