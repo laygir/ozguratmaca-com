@@ -1,6 +1,11 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+// import store from '@/store/index';
+
+import Home from '@/views/Home.vue';
+import Post from '@/views/Post.vue';
+import Contact from '@/views/Contact.vue';
+import About from '@/views/About.vue';
 
 Vue.use(VueRouter);
 
@@ -11,12 +16,24 @@ const routes = [
     component: Home,
   },
   {
+    path: '/portfolio/:slug',
+    name: 'post',
+    component: Post,
+    // beforeEnter: async (to, from, next) => {
+    //   await this.$store.dispatch('common/getPosts');
+    //   store.getters['common/getPostBySlug'](to.params.slug);
+    //   next();
+    // },
+  },
+  {
     path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    name: 'about',
+    component: About,
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: Contact,
   },
 ];
 
