@@ -1,5 +1,7 @@
 # ozguratmaca-com
 
+[![Production Build](https://github.com/laygir/ozguratmaca-com/actions/workflows/prod.yml/badge.svg)](https://github.com/laygir/ozguratmaca-com/actions/workflows/prod.yml)
+
 ## Project setup
 ```
 npm install
@@ -22,3 +24,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
