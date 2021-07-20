@@ -68,7 +68,7 @@ const actions = {
     try {
       const templates = await fetchEntries('viewTemplate');
       const view = templates.items.find(item => item.fields.slug === payload);
-      // console.log('view', view);
+      // this.$log.info('view', view);
 
       commit('setViewTemplate', [payload, view]);
       // commit('setState', ['isLoading', false]);

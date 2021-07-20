@@ -97,24 +97,24 @@ export default {
     },
   },
   async mounted() {
-    console.log('mounted: Posts');
+    this.$log.info('mounted: Posts');
 
     await this.$store.dispatch('common/getPosts');
 
 
     // window.onload = (event) => {
-    //   console.log('page is fully loaded', event);
+    //   this.$log.info('page is fully loaded', event);
     // };
 
     window.addEventListener('load', () => {
-        console.log('LOADED');
+        this.$log.info('LOADED');
         this.initIsotope();
     });
 
     // window.addEventListener('load', this.initIsotope);
 
     if (this.isWindowLoaded) {
-      console.log('init via isWindowLoaded');
+      this.$log.info('init via isWindowLoaded');
       this.initIsotope();
     }
   },
@@ -123,7 +123,7 @@ export default {
   },
   methods: {
     initIsotope() {
-      console.log('initIsotope');
+      this.$log.info('initIsotope');
 
       this.isotope = new Isotope('.isotope', {
         itemSelector: '.isotope-item',
@@ -133,7 +133,7 @@ export default {
         },
       });
 
-      console.log('iso', this.isotope);
+      this.$log.info('iso', this.isotope);
     },
     filterHandler() {
       this.isotope.arrange({ filter: this.filter });
