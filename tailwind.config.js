@@ -1,4 +1,4 @@
-const { colors, borderWidth } = require('tailwindcss/defaultTheme');
+const { colors, spacing, borderWidth } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   purge: [
@@ -12,6 +12,26 @@ module.exports = {
       borderWidth: {
         ...borderWidth,
        32: '32px',
+      },
+      minWidth: {
+        ...spacing,
+        xxxs: '12rem',
+        xxs: '16rem',
+        xs: '20rem',
+        sm: '24rem',
+        md: '28rem',
+        lg: '32rem',
+        xl: '36rem',
+      },
+      minHeight: {
+        ...spacing,
+        xxxs: '12rem',
+        xxs: '16rem',
+        xs: '20rem',
+        sm: '24rem',
+        md: '28rem',
+        lg: '32rem',
+        xl: '36rem',
       },
       fontFamily: {
         body: 'ZwoLightPlainAlt20ml',

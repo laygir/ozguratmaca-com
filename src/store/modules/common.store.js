@@ -13,6 +13,7 @@ const state = {
   // },
   views: {},
   posts: [],
+  pages: [],
 };
 
 // Mutations
@@ -38,11 +39,24 @@ const actions = {
 
     try {
       const posts = await fetchEntries('post');
-
       commit('setState', ['posts', posts]);
       commit('setState', ['isLoading', false]);
 
       return posts;
+    } catch (err) {
+      commit('setState', ['isLoading', false]);
+      return err;
+    }
+  },
+  async getPages({ commit }) {
+    commit('setState', ['isLoading', true]);
+
+    try {
+      const pages = await fetchEntries('page');
+      commit('setState', ['pages', pages]);
+      commit('setState', ['isLoading', false]);
+
+      return pages;
     } catch (err) {
       commit('setState', ['isLoading', false]);
       return err;
@@ -77,6 +91,19 @@ const getters = {
     Vue.$log.info('Vuex: slug', slug, st);
 
     const post = st.posts?.items?.find(rec => rec.fields.slug === slug);
+
+    // Vue.$log.info('Vuex: post', post);
+
+    return post;
+  },
+  getPageBySlug: st => (slug) => {
+    if (!slug) {
+      return false;
+    }
+
+    Vue.$log.info('Vuex: slug', slug, st);
+
+    const post = st.pages?.items?.find(rec => rec.fields.slug === slug);
 
     // Vue.$log.info('Vuex: post', post);
 

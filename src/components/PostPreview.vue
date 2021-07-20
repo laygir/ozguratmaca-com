@@ -3,7 +3,7 @@
     v-slot="{ href, navigate, isActive }"
     :to="{ name: 'post', params: { slug: post.fields.slug } }"
     custom
-    :class="post.metadata.tags.map(e => e.sys.id).join(' ')"
+    :class="post.metadata && post.metadata.tags.map(e => e.sys.id).join(' ')"
     >
     <!-- {{ post.fields.date }} -->
     <a
@@ -16,10 +16,11 @@
           :src="post.fields.coverImage.fields.file.url"
           :alt="post.fields.title"
           :title="post.fields.title"
+          class="rounded-sm"
           >
         <h2
           class="font-body-bold text-xs bg-gray-300 inline-block p-1
-        group-hover:bg-primary mt-6"
+        group-hover:bg-primary mt-6 rounded-sm px-2"
           >
           {{ post.fields.title }}
         </h2>
@@ -28,7 +29,7 @@
           <li
             v-for="(category, i) in post.fields.categories"
             :key="i"
-            class="inline-block text-xs pt-1"
+            class="inline-block text-xs"
             >
             <span>
               {{ category }}

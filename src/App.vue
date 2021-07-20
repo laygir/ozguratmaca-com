@@ -10,12 +10,20 @@
       fixed hidden md:block pointer-events-none z-10"
       />
 
-    <div class="container mx-auto p-8 flex flex-col h-full">
+    <div class="container max-w-7xl mx-auto py-8 px-10 md:px-16 flex flex-col h-full">
       <oa-header class="mb-12" />
 
-      <router-view class="flex-1" />
+      <transition
+        name="fade"
+        mode="out-in"
+        >
+        <router-view
+          :key="$route.fullPath"
+          class="flex-1"
+          />
+      </transition>
 
-      <oa-footer class="bg-primary pb-8" />
+      <oa-footer class="pb-8 pt-24 mt-24 bg-white" />
     </div>
   </div>
 </template>
@@ -43,6 +51,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 /* #nav {
   padding: 30px;
 }

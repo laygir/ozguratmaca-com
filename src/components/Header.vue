@@ -1,7 +1,7 @@
 <template>
-  <header class="flex pt-8 pb-20 border-b">
+  <header class="flex pt-8 pb-12 sm:pb-20 border-b flex-col sm:flex-row">
     <h1
-      class="text-2xl tracking-tight flex-1"
+      class="text-2xl tracking-tight flex-1 items-center justify-center"
       >
       <router-link
         v-slot="{ href, navigate, isActive }"
@@ -24,14 +24,14 @@
     </h1>
 
     <nav
-      class="flex items-center text-sm uppercase justify-around
-      md:justify-end tracking-widest"
+      class="flex sm:items-center text-sm uppercase justify-around
+      md:justify-end tracking-widest flex-col sm:flex-row mt-8 sm:mt-0"
       >
       <ul
         v-for="(item, i) in nav"
         :key="i"
         >
-        <li class="px-5">
+        <li class="pb-4 px-1 sm:px-5">
           <router-link
             v-slot="{ href, navigate, isExactActive }"
             :to="`/${item.path}`"
