@@ -26,21 +26,21 @@
             </template>
 
             <template v-else-if="value.nodeType === 'hyperlink'">
-              <router-link
+              <!-- <router-link
                 v-slot="{ href, navigate }"
                 :key="n"
                 :to="value.data.uri"
                 custom
+                > -->
+              <a
+                :key="n"
+                :href="value.data.uri"
+                :class="getComponentClass(value)"
+                @click="navigate"
                 >
-                <a
-                  :key="n"
-                  :href="href"
-                  :class="getComponentClass(value)"
-                  @click="navigate"
-                  >
-                  {{ value.content[0].value }}
-                </a>
-              </router-link>
+                {{ value.content[0].value }}
+              </a>
+              <!-- </router-link> -->
             </template>
 
             <template v-else>
