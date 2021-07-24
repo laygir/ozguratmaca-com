@@ -103,7 +103,6 @@ export default {
     window.addEventListener('load', () => {
       this.$log.info('LOADED');
       this.initIsotope();
-      this.isotope.layout();
     });
 
     // window.addEventListener('load', this.initIsotope);
@@ -128,6 +127,11 @@ export default {
           columnWidth: 0,
         },
       });
+
+      setTimeout(() => {
+        this.isotope.layout();
+        this.$log.info('Did layout');
+      }, 1000);
 
       this.$log.info('iso', this.isotope);
     },
