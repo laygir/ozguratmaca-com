@@ -103,6 +103,7 @@ export default {
     window.addEventListener('load', () => {
       this.$log.info('LOADED');
       this.initIsotope();
+      this.isotope.layout();
     });
 
     // window.addEventListener('load', this.initIsotope);
@@ -110,6 +111,7 @@ export default {
     if (this.isWindowLoaded) {
       this.$log.info('init via isWindowLoaded');
       this.initIsotope();
+      this.isotope.layout();
     }
   },
   destroyed() {
