@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
+  <div id="home">
     <oa-page
       slug="home"
-      class="pb-24"
+      class="pb-8"
       />
     <oa-posts />
   </div>
@@ -26,15 +26,6 @@ export default {
     ...mapGetters({
       getPageBySlug: 'common/getPageBySlug',
     }),
-    // sortedPosts() {
-    //   return this.posts?.items
-    //     ?.slice()
-    //     .sort((a, b) => new Date(b.fields.date) - new Date(a.fields.date)) || [];
-    // },
-
-  },
-  async mounted() {
-    // await this.$store.dispatch('common/getPages');
   },
 };
 </script>

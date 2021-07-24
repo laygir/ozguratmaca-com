@@ -1,5 +1,19 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <oa-page
+      v-if="true"
+      slug="about"
+      class="pb-8"
+      />
   </div>
 </template>
+
+<script>
+import oaPage from '@/components/Page.vue';
+
+export default {
+  components: {
+    oaPage,
+  },
+};
+</script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="posts">
     <ul class="flex flex-wrap items-center text-sm justify-center font-body-bold pb-12">
       <li
         v-for="(f, i) in filters"
@@ -16,22 +16,15 @@
       </li>
     </ul>
 
-    <!-- {{ posts.items[0].fields.date }} -->
     <div class="isotope pb-4">
-      <!-- <div class="isotope-sizer" /> -->
       <oa-post-preview
         v-for="(post, i) in sortedPosts"
         :key="i"
         :post="post"
-        class="isotope-item px-4 pb-16"
+        class="isotope-item pb-16"
         :index="i"
-        :class="
-          i % 2 === 0 ? 'md:w-1/2 lg:w-2/3 xl:w-2/4' : 'md:w-1/2 lg:w-1/3 xl:w-1/4'
-        "
+        :class="postWidth[i % 3]"
         />
-        <!-- :style="
-          i % 3 === 0 ? 'max-width: 25%;' : 'max-width: 50%;'
-        " -->
     </div>
   </div>
 </template>
@@ -47,11 +40,6 @@ export default {
     oaPostPreview,
   },
   props: {
-    // posts: {
-    //   type: Array,
-    //   required: false,
-    //   default: () => [],
-    // },
   },
   data() {
     return {
@@ -95,20 +83,26 @@ export default {
     isWindowLoaded() {
       return performance.getEntriesByType('navigation').every(e => e.loadEventEnd);
     },
+    postWidth() {
+      return [
+        'w-1/1 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5',
+        'w-1/1 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-2/5',
+        'w-1/1 sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5',
+      ];
+    },
   },
   async mounted() {
     this.$log.info('mounted: Posts');
 
     await this.$store.dispatch('common/getPosts');
 
-
     // window.onload = (event) => {
     //   this.$log.info('page is fully loaded', event);
     // };
 
     window.addEventListener('load', () => {
-        this.$log.info('LOADED');
-        this.initIsotope();
+      this.$log.info('LOADED');
+      this.initIsotope();
     });
 
     // window.addEventListener('load', this.initIsotope);
@@ -141,7 +135,3 @@ export default {
   },
 };
 </script>
-
-<style lang="postcss">
-
-</style>

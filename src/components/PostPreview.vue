@@ -2,10 +2,10 @@
   <router-link
     v-slot="{ href, navigate, isActive }"
     :to="{ name: 'post', params: { slug: post.fields.slug } }"
+    :class="post.metadata && post.metadata.tags.map((e) => e.sys.id).join(' ')"
+    class="px-4"
     custom
-    :class="post.metadata && post.metadata.tags.map(e => e.sys.id).join(' ')"
     >
-    <!-- {{ post.fields.date }} -->
     <a
       :active="isActive"
       :href="href"
@@ -16,11 +16,11 @@
           :src="post.fields.coverImage.fields.file.url"
           :alt="post.fields.title"
           :title="post.fields.title"
-          class="rounded-sm"
+          class="rounded-sm w-full pb-2"
           >
         <h2
-          class="font-body-bold text-xs bg-gray-300 inline-block p-1
-        group-hover:bg-primary mt-6 rounded-sm px-2"
+          class="font-body-bold text-xs bg-gray-300 inline p-1
+        group-hover:bg-primary rounded-sm px-2"
           >
           {{ post.fields.title }}
         </h2>
@@ -42,13 +42,6 @@
             </span>
           </li>
         </ul>
-        <!-- {{ post.fields.description.content }} -->
-        <!-- {{ post.fields.client }} -->
-        <!-- {{ post.fields.date }} -->
-        <!-- {{ post.fields.slug }} -->
-        <!-- {{ post.fields.vimeoUrl }} -->
-        <!-- {{ post.metadata.tags[0].sys.id }} -->
-        <!-- {{ post.metadata.tags }} -->
       </div>
     </a>
   </router-link>

@@ -8,7 +8,7 @@
       id="intro mb-12"
       class="flex flex-col lg:flex-row"
       >
-      <div class="w-full lg:w-3/5">
+      <div class="w-full lg:w-3/5 lg:pr-8">
         <p
           v-for="(data, i) in fields.description && fields.description.content"
           :key="i"
@@ -21,35 +21,41 @@
       <div class="flex-1 lg:px-8">
         <ul>
           <li
-            v-for="(meta,i) in postMeta"
+            v-for="(meta, i) in postMeta"
             :key="i"
-            class="flex"
+            class="flex border-b mb-4 items-baseline pb-4"
             >
-            <h3 class="font-body-bold min-w-28 pb-4 text-xs uppercase leading-7 tracking-widest">
+            <h3 class="font-body-bold min-w-28 text-xs uppercase leading-9 tracking-widest">
               {{ meta.label }}
             </h3>
-            <p class="pl-4 leading-7">
+            <p class="pl-4 leading-7 text-gray-700">
               {{ meta.value }}
             </p>
           </li>
         </ul>
       </div>
     </div>
-
     <div
-      v-if="vimeoId"
+      v-for="(video, i) in fields.videoUrl"
       id="video"
+      :key="i"
       class="pt-12"
       >
-      <div style="padding:56.25% 0 0 0;position:relative;">
-        <iframe
-          :src="`https://player.vimeo.com/video/${vimeoId}?title=0&byline=0&portrait=0`"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-          />
-      </div>
+      <template v-if="video">
+        <div
+          :style="`padding:${(fields.videoPadding && fields.videoPadding[i])
+            || '56.25%'} 0 0 0;`"
+          class="relative"
+          >
+          <iframe
+            :src="`https://player.vimeo.com/video/${videoId(video)}?title=0&byline=0&portrait=0`"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            />
+        </div>
+      </template>
     </div>
 
     <div
@@ -65,7 +71,10 @@
         >
     </div>
 
-    <oa-posts class="pt-20" />
+    <h3 class="text-center pt-20 pb-8">
+      Find out more below
+    </h3>
+    <oa-posts class="" />
   </div>
 </template>
 
@@ -92,25 +101,33 @@ export default {
     fields() {
       return this.post?.fields || {};
     },
-    vimeoId() {
-      return this.fields?.vimeoUrl?.slice(this.fields?.vimeoUrl?.lastIndexOf('/') + 1);
-    },
     postMeta() {
+      const dateOptions = {
+        // weekday: 'long', //
+        year: 'numeric',
+        month: 'long',
+        // day: 'numeric',
+        // hour: 'numeric',
+        // minute: 'numeric',
+      };
+
       const labels = [
         {
           key: 'client',
           label: 'Client',
-          value: this.fields.client || '–',
+          value: this.fields.client || '-',
         },
         {
           key: 'date',
           label: 'Project date',
-          value: this.fields.date,
+          value: this.fields?.date
+            ? new Intl.DateTimeFormat('en-US', dateOptions).format(new Date(this.fields?.date))
+            : '-',
         },
         {
           key: 'categories',
           label: 'Category',
-          value: this.fields?.categories?.join(' · '),
+          value: this.fields?.categories?.join(' · ') || '-',
         },
       ];
 
@@ -122,6 +139,11 @@ export default {
       await this.$store.dispatch('common/getPosts');
     }
     this.post = this.getPostBySlug(this.$route.params.slug);
+  },
+  methods: {
+    videoId(videoUrl) {
+      return videoUrl.slice(videoUrl?.lastIndexOf('/') + 1);
+    },
   },
 };
 </script>

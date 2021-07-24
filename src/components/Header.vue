@@ -1,5 +1,7 @@
 <template>
-  <header class="flex pt-8 pb-12 sm:pb-20 border-b flex-col sm:flex-row">
+  <header
+    class="flex sm:flex-row lg:flex-row border-b pt-8 pb-12 sm:pb-20"
+    >
     <h1
       class="text-2xl tracking-tight flex-1 items-center justify-center"
       >
@@ -31,7 +33,7 @@
         v-for="(item, i) in nav"
         :key="i"
         >
-        <li class="pb-4 px-1 sm:px-5">
+        <li class="px-1 sm:px-5">
           <router-link
             v-slot="{ href, navigate, isExactActive }"
             :to="`/${item.path}`"
