@@ -1,8 +1,13 @@
-const { colors, spacing, borderWidth } = require('tailwindcss/defaultTheme');
+const {
+  colors, //
+  spacing,
+  borderWidth,
+  lineHeight,
+} = require('tailwindcss/defaultTheme');
 
 module.exports = {
   purge: [
-    './src/**/*.html',
+    './src/**/*.html', //
     './src/**/*.js',
     './src/**/*.vue',
   ],
@@ -11,7 +16,7 @@ module.exports = {
     extend: {
       borderWidth: {
         ...borderWidth,
-       32: '32px',
+        32: '32px',
       },
       minWidth: {
         ...spacing,
@@ -22,6 +27,10 @@ module.exports = {
         md: '28rem',
         lg: '32rem',
         xl: '36rem',
+      },
+      lineHeight: {
+        ...lineHeight,
+        ...spacing,
       },
       minHeight: {
         ...spacing,
@@ -41,6 +50,7 @@ module.exports = {
       colors: {
         ...colors,
         primary: '#ffbb00',
+        'gray-100': '#f4f4f4',
         // 'primary-hover': '#ef3d3f',
       },
       letterSpacing: {
@@ -50,7 +60,7 @@ module.exports = {
   },
   variants: {
     extend: {
-       scale: ['active', 'group-hover'],
+      scale: ['active', 'group-hover'],
     },
   },
   plugins: [],
