@@ -1,6 +1,6 @@
 <template>
   <header
-    class="flex sm:flex-row lg:flex-row border-b pt-8 pb-12 sm:pb-20"
+    class="flex flex-col sm:flex-row lg:flex-row border-b pt-8 pb-12 sm:pb-20"
     >
     <h1
       class="text-2xl tracking-tight flex-1 items-center justify-center"
