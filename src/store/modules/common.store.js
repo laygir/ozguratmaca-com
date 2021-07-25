@@ -1,16 +1,10 @@
 import Vue from 'vue';
+import ContactService from '@/services/ContactService';
 import { fetchEntries } from '@/services/contentful';
 
 /* eslint no-shadow: ["error", { "allow": ["state", "getters"] }] */
 // State object
 const state = {
-  // appState: {
-  //   isDev: process.env.VUE_APP_ENV === 'dev',
-  //   isDevelopment: process.env.VUE_APP_ENV === 'development',
-  //   webAppVersion: process.env.VERSION,
-  //   webAppEnv: process.env.VUE_APP_ENV,
-  //   webSiteURL: process.env.VUE_APP_WEBSITE,
-  // },
   views: {},
   posts: [],
   pages: [],
@@ -78,6 +72,11 @@ const actions = {
       // commit('setState', ['isLoading', false]);
       // return err;
     }
+  },
+  async sendEmail(context, payload) {
+    Vue.$log.info('Actions: sendEmail', payload);
+    const response = await ContactService.sendEmail(payload);
+    return Promise.resolve(response);
   },
 };
 
