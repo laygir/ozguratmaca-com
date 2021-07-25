@@ -35,12 +35,12 @@
         >
         <li class="px-1 sm:px-5">
           <router-link
-            v-slot="{ href, navigate, isExactActive }"
-            :to="`/${item.path}`"
+            v-slot="{ href, navigate, isActive, isExactActive }"
+            :to="{ name: item.path, params: { slug: item.path }}"
             custom
             >
             <a
-              :active="isExactActive"
+              :active="isActive"
               :href="href"
               class="hover:bg-primary"
               @click="navigate"
@@ -68,7 +68,7 @@ export default {
       nav: {
         about: {
           name: 'Home',
-          path: '',
+          path: 'home',
         },
         production: {
           name: 'About',

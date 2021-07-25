@@ -94,18 +94,10 @@ export default {
   async mounted() {
     this.$log.info('mounted: Posts');
 
-    await this.$store.dispatch('common/getPosts');
-
-    // window.onload = (event) => {
-    //   this.$log.info('page is fully loaded', event);
-    // };
-
     window.addEventListener('load', () => {
       this.$log.info('LOADED');
       this.initIsotope();
     });
-
-    // window.addEventListener('load', this.initIsotope);
 
     if (this.isWindowLoaded) {
       this.$log.info('init via isWindowLoaded');

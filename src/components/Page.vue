@@ -105,10 +105,6 @@ export default {
     },
   },
   async created() {
-    if (!this.posts.length) {
-      await this.$store.dispatch('common/getPages');
-    }
-
     this.page = this.getPageBySlug(this.$route.params.slug || this.slug);
   },
   methods: {

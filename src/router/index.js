@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-// import store from '@/store/index';
+import store from '@/store/index';
 
 import Home from '@/views/Home.vue';
 import Post from '@/views/Post.vue';
@@ -12,7 +12,11 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    redirect: '/home',
+  },
+  {
+    path: '/home',
+    name: 'home',
     component: Home,
   },
   {
@@ -48,6 +52,32 @@ const router = new VueRouter({
     }
     return { x: 0, y: 0, behavior: 'smooth' };
   },
+});
+
+router.beforeEach(async (to, from, next) => {
+  if (!store.state.common.posts?.items?.length) {
+    Vue.$log.info('Will getPosts');
+    await store.dispatch('common/getPosts');
+  }
+  if (!store.state.common.pages?.items?.length) {
+    Vue.$log.info('Will getPages');
+    await store.dispatch('common/getPages');
+  }
+  next();
+});
+
+router.afterEach((to) => {
+  let entries = [];
+
+  entries.push(store.state.common.posts.items);
+  entries.push(store.state.common.pages.items);
+  entries = entries.flat();
+
+  const current = entries.find(
+    item => item.fields.slug === (to.params.slug || to.name),
+  );
+
+  document.title = `Özgür Atmaca${ current?.fields?.title}`;
 });
 
 export default router;

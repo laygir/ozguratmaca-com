@@ -135,9 +135,6 @@ export default {
     },
   },
   async created() {
-    if (!this.posts.length) {
-      await this.$store.dispatch('common/getPosts');
-    }
     this.post = this.getPostBySlug(this.$route.params.slug);
   },
   methods: {
