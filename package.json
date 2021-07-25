@@ -4,7 +4,7 @@
     "name": "Ozgur Atmaca",
     "email": "ozgur@nicetohave.me"
   },
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
