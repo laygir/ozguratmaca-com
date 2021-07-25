@@ -77,7 +77,7 @@ router.afterEach((to) => {
     item => item.fields.slug === (to.params.slug || to.name),
   );
 
-  document.title = `Özgür Atmaca${ current?.fields?.title}`;
+  document.title = `Özgür Atmaca – ${ current?.fields?.title}`;
 });
 
 export default router;
