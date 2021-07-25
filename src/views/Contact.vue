@@ -72,7 +72,7 @@
         type="submit"
         class="py-3 px-12 bg-primary hover:bg-white"
         >
-        Send
+        {{ isSending ? 'Sending' : 'Send' }}
       </button>
     </form>
   </div>
@@ -91,6 +91,7 @@ export default {
       correctResult: null,
       a: null,
       b: null,
+      isSending: false,
     };
   },
   created() {
@@ -111,17 +112,21 @@ export default {
       this.error = null;
       this.success = null;
 
-      if (parseInt(captchaAnswer, 10) !== correctResult) {
-        this.error = 'Wrong answer';
-        return;
-      }
+      const wrongAnswer = parseInt(captchaAnswer, 10) !== correctResult;
+      const emptyFields = !(email && subject && message);
 
-      if (!(email && subject && message)) {
+      if (emptyFields) {
         this.error = 'Fields are empty.';
         return;
       }
 
+      if (wrongAnswer) {
+        this.error = 'Wrong answer';
+        return;
+      }
+
       try {
+        this.isSending = true;
         const response = await this.$store.dispatch('common/sendEmail', {
           email,
           subject,
@@ -133,6 +138,8 @@ export default {
         this.$log.info('Did handle form', response);
       } catch (error) {
         this.$log.error('Error handle form', error);
+      } finally {
+        this.isSending = false;
       }
     },
     randomIntFromInterval(min, max) {

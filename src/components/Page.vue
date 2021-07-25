@@ -36,7 +36,6 @@
                 :key="n"
                 :href="value.data.uri"
                 :class="getComponentClass(value)"
-                @click="navigate"
                 >
                 {{ value.content[0].value }}
               </a>
