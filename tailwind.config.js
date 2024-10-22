@@ -46,6 +46,7 @@ module.exports = {
         body: 'ZwoLightPlainAlt20ml',
         'body-bold': 'ZwoBoldPlainAlt20ml',
         serif: 'Playfair Display',
+        jetbrains: 'JetBrains Mono',
       },
       colors: {
         ...colors,
