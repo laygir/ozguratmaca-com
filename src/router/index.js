@@ -6,6 +6,7 @@ import Home from '@/views/Home.vue';
 import Post from '@/views/Post.vue';
 import Contact from '@/views/Contact.vue';
 import About from '@/views/About.vue';
+import Resume from '@/views/Resume.vue';
 
 Vue.use(VueRouter);
 
@@ -35,6 +36,16 @@ const routes = [
     component: About,
   },
   {
+    path: '/resume',
+    name: 'resume',
+    component: Resume,
+    meta: {
+      hasHeader: false,
+      hasFooter: false,
+      backgroundClass: 'bg-white',
+    },
+  },
+  {
     path: '/contact',
     name: 'contact',
     component: Contact,
@@ -55,13 +66,15 @@ const router = new VueRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  if (!store.state.common.posts?.items?.length) {
-    Vue.$log.info('Will getPosts');
-    await store.dispatch('common/getPosts');
-  }
-  if (!store.state.common.pages?.items?.length) {
-    Vue.$log.info('Will getPages');
-    await store.dispatch('common/getPages');
+  if (to.name !== 'resume') {
+    if (!store.state.common.posts?.items?.length) {
+      Vue.$log.info('Will getPosts');
+      await store.dispatch('common/getPosts');
+    }
+    if (!store.state.common.pages?.items?.length) {
+      Vue.$log.info('Will getPages');
+      await store.dispatch('common/getPages');
+    }
   }
   next();
 });
@@ -74,10 +87,10 @@ router.afterEach((to) => {
   entries = entries.flat();
 
   const current = entries.find(
-    item => item.fields.slug === (to.params.slug || to.name),
+    item => item?.fields?.slug === (to?.params?.slug || to?.name),
   );
 
-  document.title = `Özgür Atmaca – ${ current?.fields?.title}`;
+  document.title = `Özgür Atmaca ${current?.fields?.title ? `- ${current?.fields?.title}` : undefined || ''}`;
 });
 
 export default router;

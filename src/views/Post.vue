@@ -12,7 +12,7 @@
         <p
           v-for="(data, i) in fields.description && fields.description.content"
           :key="i"
-          class="pb-8 leading-8 text-gray-500"
+          class="pb-8 leading-8 text-gray-900"
           >
           {{ data.content[0].value }}
         </p>

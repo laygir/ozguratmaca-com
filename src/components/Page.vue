@@ -2,7 +2,7 @@
   <div>
     <div
       id="intro mb-12"
-      class="flex flex-col lg:flex-row"
+      class="flex flex-col lg:flex-row justify-center items-center"
       >
       <img
         :src="image"
@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div
+    <!-- <div
       v-if="videoId"
       id="video"
       class="pt-24 pb-8"
@@ -67,7 +67,7 @@
           allowfullscreen
           />
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
