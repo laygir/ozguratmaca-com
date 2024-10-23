@@ -72,6 +72,7 @@
           </div>
 
           <hr class="my-8 border-t border-gray-200">
+          <br>
         </div>
 
         <div
@@ -585,7 +586,7 @@ export default {
             title: 'DOS-OCD Shop ART – UX Engineer',
             description: [
               'I think Özgür is the type of developer you don\'t see often. He has the knowledge and eye you expect from a designer, while also being an incredibly good developer. Özgür knew how to push me to be better, learn more and know more. I think back fondly of our time in a team together and I learned a lot from him.',
-              'Working with Özgür has had a lasting impact on me that still helps me in my career to this day. He does not strive for something to be good, he wants his projects to be perfect. Özgür carried the team we were in. His technical know-how pushed the project forward.',
+              'Working with Özgür has had a lasting impact on me that still helps me in my career to this day. He does not strive for something to be good, he aims for excellence. Özgür carried the team we were in. His technical know-how pushed the project forward.',
             ],
           },
         ],
